@@ -1,0 +1,180 @@
+openapi: 3.0.3
+info:
+  title: LoopMe Reporting Ad Serving API
+  version: v1
+  description: The LoopMe Reporting API allows third-party servers to retrieve app, site, and campaign statistics of LoopMe user accounts via REST. There is a publisher reporting endpoint (apps/sites) and an advertiser reporting endpoint (campaigns). All requests use GET and are authenticated with a 16-character API authentication token passed as the api_auth_token query parameter, which is enabled in the LoopMe dashboard Account/Settings. Responses are JSON, currency is USD, and all times are UTC.
+  contact:
+    name: LoopMe Support
+    url: https://wiki.loopme.cool/publishers/reporting-api
+  x-apievangelist-generated: true
+  x-source: https://wiki.loopme.cool/publishers/reporting-api
+servers:
+- url: https://reports.loopme.com/api/v1
+  description: LoopMe Reporting API
+security:
+- api_auth_token: []
+tags:
+- name: Ad Serving
+paths:
+  /ads:
+    get:
+      operationId: requestAd
+      summary: Request an ad
+      description: Requests an ad for the described device/app/user context. Returns an ad payload on success, an empty ads array when no ad is available, or an error object.
+      tags:
+      - Ad Serving
+      parameters:
+      - name: appId
+        in: query
+        required: true
+        description: Unique application identifier provided by LoopMe.
+        schema:
+          type: string
+      - name: ua
+        in: query
+        required: true
+        description: Device user agent string.
+        schema:
+          type: string
+      - name: uid
+        in: query
+        required: true
+        description: Unique user identifier (IDFA, Google Advertiser ID, or cookie ID).
+        schema:
+          type: string
+      - name: ip
+        in: query
+        required: true
+        description: Device IP address.
+        schema:
+          type: string
+      - name: clientid
+        in: query
+        required: true
+        description: Client server name, used for debugging.
+        schema:
+          type: string
+      - name: dnt
+        in: query
+        required: true
+        description: Do-not-track flag; 1 to disable tracking.
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+      - name: bundleid
+        in: query
+        required: true
+        description: App bundle ID from the store.
+        schema:
+          type: string
+      - name: appname
+        in: query
+        required: true
+        description: Application name.
+        schema:
+          type: string
+      - name: sdk
+        in: query
+        required: true
+        description: SDK version number.
+        schema:
+          type: string
+      - name: exchange
+        in: query
+        required: true
+        description: Exchange or network name.
+        schema:
+          type: string
+      - name: app_version
+        in: query
+        required: false
+        description: App version number.
+        schema:
+          type: string
+      - name: pubname
+        in: query
+        required: false
+        description: Publisher name.
+        schema:
+          type: string
+      - name: lon
+        in: query
+        required: false
+        description: Longitude coordinate.
+        schema:
+          type: number
+      - name: lat
+        in: query
+        required: false
+        description: Latitude coordinate.
+        schema:
+          type: number
+      - name: reward
+        in: query
+        required: false
+        description: Rewarded ad indicator; set to 1 for rewarded.
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+      - name: storeurl
+        in: query
+        required: false
+        description: App store URL.
+        schema:
+          type: string
+      - name: lng
+        in: query
+        required: false
+        description: User language, 2-letter ISO code.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Ad payload, or an empty ads array when no ad is available.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdResponse'
+        '404':
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdError'
+components:
+  schemas:
+    AdError:
+      type: object
+      properties:
+        status:
+          type: string
+          example: error
+        errorMessage:
+          type: string
+    AdResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: ok
+        ads:
+          type: array
+          items:
+            type: object
+            properties:
+              script:
+                type: string
+                description: Ad HTML.
+          description: Ad objects; empty when no ad is available.
+        version:
+          type: string
+  securitySchemes:
+    api_auth_token:
+      type: apiKey
+      in: query
+      name: api_auth_token
+      description: 16-character API authentication token generated by LoopMe. Enable Reporting API access in the dashboard Account/Settings to obtain it.

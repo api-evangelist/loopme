@@ -1,24 +1,141 @@
 aid: loopme
 name: LoopMe
-description: 'LoopMe is a company surfaced as a portfolio company of hv-capital and added to the API Evangelist
-  network as a stub for enrichment. Sector: ai-enterprise-software. This profile is a lead awaiting the
-  enrichment pipeline.'
+description: >-
+  LoopMe is a global brand-performance advertising platform that uses AI to bring
+  brands into mobile and CTV apps. Its products span an AI-powered intelligent
+  marketplace, PurchaseLoop outcome-based brand advertising, the Chartboost
+  in-app monetization platform, and an Audience & Measurement Platform (AMP).
+  For developers, LoopMe exposes a REST Reporting API for publisher (app/site)
+  and advertiser (campaign) statistics, a server-to-server (S2S) ad request API,
+  first-party United SDKs for Android and iOS, and a Prebid.js header-bidding
+  adapter. LoopMe is backed by HV Capital and headquartered in the UK.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://loopme.ai/wp-content/themes/loopme/assets/images/logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/apis.yml
+humanURL: https://loopme.ai/
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - hv-capital
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-public-developer-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Advertising
+- AdTech
+- Mobile Advertising
+- CTV
+- Reporting
+- Programmatic
 - Ai Enterprise Software
-apis: []
+- SDK
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: loopme:loopme-ad-serving-api
+  name: LoopMe Ad Serving API
+  description: The Ad Serving API from LoopMe — 1 operation(s) for ad serving.
+  humanURL: https://wiki.loopme.cool/publishers/reporting-api
+  baseURL: https://reports.loopme.com/api/v1
+  tags:
+  - Ad Serving
+  properties:
+  - type: OpenAPI
+    url: openapi/loopme-ad-serving-api-openapi.yml
+  - type: Documentation
+    url: https://wiki.loopme.cool/publishers/reporting-api
+  - type: Documentation
+    url: https://wiki.loopme.cool/publishers/integrations/s2s
+- aid: loopme:loopme-advertiser-reporting-api
+  name: LoopMe Advertiser Reporting API
+  description: The Advertiser Reporting API from LoopMe — 1 operation(s) for advertiser reporting.
+  humanURL: https://wiki.loopme.cool/publishers/reporting-api
+  baseURL: https://reports.loopme.com/api/v1
+  tags:
+  - Advertiser Reporting
+  properties:
+  - type: OpenAPI
+    url: openapi/loopme-advertiser-reporting-api-openapi.yml
+  - type: Documentation
+    url: https://wiki.loopme.cool/publishers/reporting-api
+  - type: Documentation
+    url: https://wiki.loopme.cool/publishers/integrations/s2s
+- aid: loopme:loopme-publisher-reporting-api
+  name: LoopMe Publisher Reporting API
+  description: The Publisher Reporting API from LoopMe — 1 operation(s) for publisher reporting.
+  humanURL: https://wiki.loopme.cool/publishers/reporting-api
+  baseURL: https://reports.loopme.com/api/v1
+  tags:
+  - Publisher Reporting
+  properties:
+  - type: OpenAPI
+    url: openapi/loopme-publisher-reporting-api-openapi.yml
+  - type: Documentation
+    url: https://wiki.loopme.cool/publishers/reporting-api
+  - type: Documentation
+    url: https://wiki.loopme.cool/publishers/integrations/s2s
+common:
+- type: DeveloperPortal
+  url: https://wiki.loopme.cool/
+- type: Documentation
+  url: https://wiki.loopme.cool/
+- type: APIReference
+  url: https://wiki.loopme.cool/publishers/reporting-api
+- type: Blog
+  url: https://loopme.ai/news-blog/
+- type: Support
+  url: https://www.loopme.io/support/
+- type: GitHubOrganization
+  url: https://github.com/loopme
+- type: PrivacyPolicy
+  url: https://legal.loopme.com/privacy-center
+- type: TermsOfService
+  url: https://legal.loopme.com/legal-centre/terms-of-use
+- type: SDKs
+  url: packages/loopme-packages.yml
+- type: Packages
+  url: packages/loopme-packages.yml
+- type: Authentication
+  url: authentication/loopme-authentication.yml
+- type: ErrorCatalog
+  url: errors/loopme-error-codes.yml
+- type: Conventions
+  url: conventions/loopme-conventions.yml
+- type: Lifecycle
+  url: lifecycle/loopme-lifecycle.yml
+- type: MCPServer
+  url: mcp/loopme-mcp.yml
+- type: WellKnown
+  url: well-known/loopme-well-known.yml
+- type: DomainSecurity
+  url: security/loopme-domain-security.yml
+- type: DataModel
+  url: data-model/loopme-data-model.yml
+- type: ChangeLog
+  url: changelog/loopme-changelog.yml
+- type: LLMsTxt
+  url: llms/loopme-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1

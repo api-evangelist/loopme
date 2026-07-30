@@ -1,0 +1,174 @@
+openapi: 3.0.3
+info:
+  title: LoopMe S2S Ad Request API
+  version: '1.0'
+  description: >-
+    LoopMe server-to-server (S2S) ad request API. A publisher's ad server makes
+    a GET request describing the device, app, and user, and LoopMe returns an ad
+    payload (ad HTML in a script element plus beacon URLs) or an empty ads array
+    when no ad is available. Requests are identified by the appId provided by
+    LoopMe rather than a bearer token.
+  contact:
+    name: LoopMe Support
+    url: https://wiki.loopme.cool/publishers/integrations/s2s
+  x-apievangelist-generated: true
+  x-source: https://wiki.loopme.cool/publishers/integrations/s2s
+servers:
+  - url: https://loopme.me/api/s2s
+    description: LoopMe S2S ad request endpoint
+paths:
+  /ads:
+    get:
+      operationId: requestAd
+      summary: Request an ad
+      description: >-
+        Requests an ad for the described device/app/user context. Returns an ad
+        payload on success, an empty ads array when no ad is available, or an
+        error object.
+      tags:
+        - Ad Serving
+      parameters:
+        - name: appId
+          in: query
+          required: true
+          description: Unique application identifier provided by LoopMe.
+          schema:
+            type: string
+        - name: ua
+          in: query
+          required: true
+          description: Device user agent string.
+          schema:
+            type: string
+        - name: uid
+          in: query
+          required: true
+          description: Unique user identifier (IDFA, Google Advertiser ID, or cookie ID).
+          schema:
+            type: string
+        - name: ip
+          in: query
+          required: true
+          description: Device IP address.
+          schema:
+            type: string
+        - name: clientid
+          in: query
+          required: true
+          description: Client server name, used for debugging.
+          schema:
+            type: string
+        - name: dnt
+          in: query
+          required: true
+          description: Do-not-track flag; 1 to disable tracking.
+          schema:
+            type: integer
+            enum: [0, 1]
+        - name: bundleid
+          in: query
+          required: true
+          description: App bundle ID from the store.
+          schema:
+            type: string
+        - name: appname
+          in: query
+          required: true
+          description: Application name.
+          schema:
+            type: string
+        - name: sdk
+          in: query
+          required: true
+          description: SDK version number.
+          schema:
+            type: string
+        - name: exchange
+          in: query
+          required: true
+          description: Exchange or network name.
+          schema:
+            type: string
+        - name: app_version
+          in: query
+          required: false
+          description: App version number.
+          schema:
+            type: string
+        - name: pubname
+          in: query
+          required: false
+          description: Publisher name.
+          schema:
+            type: string
+        - name: lon
+          in: query
+          required: false
+          description: Longitude coordinate.
+          schema:
+            type: number
+        - name: lat
+          in: query
+          required: false
+          description: Latitude coordinate.
+          schema:
+            type: number
+        - name: reward
+          in: query
+          required: false
+          description: Rewarded ad indicator; set to 1 for rewarded.
+          schema:
+            type: integer
+            enum: [0, 1]
+        - name: storeurl
+          in: query
+          required: false
+          description: App store URL.
+          schema:
+            type: string
+        - name: lng
+          in: query
+          required: false
+          description: User language, 2-letter ISO code.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Ad payload, or an empty ads array when no ad is available.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdResponse'
+        '404':
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdError'
+components:
+  schemas:
+    AdResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: ok
+        ads:
+          type: array
+          items:
+            type: object
+            properties:
+              script:
+                type: string
+                description: Ad HTML.
+          description: Ad objects; empty when no ad is available.
+        version:
+          type: string
+    AdError:
+      type: object
+      properties:
+        status:
+          type: string
+          example: error
+        errorMessage:
+          type: string

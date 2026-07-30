@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: https://wiki.loopme.cool/publishers/reporting-api
+format: custom-json
+envelope:
+  field: errors
+  shape: '{ "errors": { "<code>": "<description>" } }'
+  description: >-
+    Reporting API errors are returned as a JSON object with an "errors" map of
+    numeric error code to human-readable description.
+error_codes:
+  - code: 1001
+    title: Missing or invalid api_auth_token
+    remediation: Provide a valid 16-character api_auth_token enabled in Account/Settings.
+  - code: 2002
+    title: Date range is in wrong format
+    remediation: >-
+      Use a predefined value (today, yesterday, days7, days30, days90) or the
+      custom YYYY-MM-DD:YYYY-MM-DD range format.
+  - code: 4001
+    title: App not found
+    remediation: Supply a valid app_key belonging to the authenticated account.
+  - code: 4002
+    title: Campaign not found
+    remediation: Supply a valid campaign_id belonging to the authenticated account.
+  - code: 5001
+    title: Country code is wrong
+    remediation: Use an ISO 3166-1 alpha-3 three-letter country code (e.g. USA, GBR).
+notes: >-
+  The S2S ad request API returns HTTP 404 with { "status": "error",
+  "errorMessage": "..." } on failure, and HTTP 200 with an empty ads array when
+  no ad is available.

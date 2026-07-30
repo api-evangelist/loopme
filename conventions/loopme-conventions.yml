@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+source: https://wiki.loopme.cool/publishers/reporting-api
+api: Reporting API
+authentication:
+  style: api-key
+  location: query
+  parameter: api_auth_token
+  docs: https://wiki.loopme.cool/publishers/reporting-api
+  ref: authentication/loopme-authentication.yml
+idempotency:
+  supported: false
+  reason: Reporting and S2S surfaces are read-only GET requests; no idempotency-key contract is documented.
+pagination:
+  style: none
+  notes: >-
+    The Reporting API returns a full series for the requested date_range; results
+    are shaped by granularity (hour/day/week/month) and grouped via the group_by
+    dimension list rather than paged.
+filtering:
+  params:
+    - date_range
+    - granularity
+    - country_code
+    - platform
+    - group_by
+    - app_key
+    - campaign_id
+    - line_item_id
+    - creative_id
+date_time:
+  format: 'YYYY-MM-DD (YYYY-MM-DD hh:mm:ss for hourly granularity)'
+  timezone: UTC
+  currency: USD
+versioning:
+  scheme: uri-path
+  current: v1
+  ref: lifecycle/loopme-lifecycle.yml
+error_envelope:
+  field: errors
+  ref: errors/loopme-error-codes.yml
+rate_limiting:
+  documented: false

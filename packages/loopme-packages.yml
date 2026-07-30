@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/loopme
+packages:
+  - language: java
+    platform: android
+    registry: github
+    name: android-united-sdk
+    url: https://github.com/loopme/android-united-sdk
+    official: true
+    description: >-
+      LoopMe United SDK for Android — combines multiple premium ads technologies
+      (interstitial, rewarded video, banner, mediation adapters) for app
+      publishers. Distributed via GitHub releases (latest 9.0.9).
+  - language: objective-c
+    platform: ios
+    registry: github
+    name: ios-united-sdk
+    url: https://github.com/loopme/ios-united-sdk
+    official: true
+    description: >-
+      LoopMe United SDK for iOS — combines multiple premium ads technologies for
+      app publishers, with SKAdNetwork support.
+  - language: javascript
+    registry: github
+    name: Prebid.js LoopMe bid adapter
+    url: https://docs.prebid.org/dev-docs/bidders/loopme.html
+    official: true
+    description: >-
+      First-party LoopMe bidder adapter for Prebid.js header bidding
+      (contributed to the Prebid.js project).
+notes: >-
+  LoopMe distributes its first-party mobile SDKs through GitHub releases rather
+  than Maven Central / CocoaPods trunk. The Maven artifact
+  com.cleveradssolutions:loopme is a third-party CleverAdsSolutions mediation
+  adapter, not a first-party LoopMe package, and is excluded here.

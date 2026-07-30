@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: reports.loopme.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 16 09:22:00 2026 GMT
+  hsts: null
+- host: loopme.me
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 16 09:22:00 2026 GMT
+  hsts: false
+domains:
+- domain: loopme.com
+  dnssec: false
+  caa:
+  - 0 issue "letsencrypt.org"
+  - 0 issue "pki.goog"
+  - 0 issue "sectigo.com"
+  - 0 issue "digicert.com"
+  - 0 iodef "mailto:devops@loopme.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: loopme.me
+  dnssec: false
+  caa:
+  - 0 issue "letsencrypt.org"
+  - 0 issue "pki.goog"
+  - 0 issue "digicert.com"
+  - 0 iodef "mailto:devops@loopme.com"
+  - 0 issue "sectigo.com"
+  spf: true
+  dmarc: false

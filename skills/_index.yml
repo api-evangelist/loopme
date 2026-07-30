@@ -1,0 +1,7 @@
+generated: '2026-07-20'
+method: generated
+skills:
+  - file: loopme-pull-reporting.md
+    name: Pull LoopMe reporting statistics
+    api: openapi/loopme-reporting-openapi.yml
+    operations: [getPublisherReport, getAdvertiserReport]

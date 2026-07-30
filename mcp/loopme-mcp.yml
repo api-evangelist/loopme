@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/loopme-reporting-openapi.yml
+server:
+  name: loopme
+  transport: http
+  url: null
+tools:
+  - name: get_publisher_report
+    description: Retrieve LoopMe publisher (app/site) statistics for a date range.
+    source_operation: openapi/loopme-reporting-openapi.yml#getPublisherReport
+  - name: get_advertiser_report
+    description: Retrieve LoopMe advertiser (campaign/line-item/creative) statistics for a date range.
+    source_operation: openapi/loopme-reporting-openapi.yml#getAdvertiserReport
+notes: >-
+  No official hosted LoopMe MCP server was found. This is a candidate tool list
+  derived from the documented Reporting API operations; the S2S ad-serving
+  endpoint is intentionally excluded (server-side ad rendering, not an
+  agent-appropriate tool).

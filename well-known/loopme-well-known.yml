@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+source: probe of /.well-known/ across LoopMe hosts
+hosts:
+  - host: https://reports.loopme.com
+    documents:
+      - { path: /.well-known/security.txt, status: 404 }
+      - { path: /.well-known/openid-configuration, status: 404 }
+      - { path: /.well-known/oauth-authorization-server, status: 404 }
+      - { path: /.well-known/api-catalog, status: 404 }
+  - host: https://loopme.ai
+    documents:
+      - { path: /.well-known/security.txt, status: 404 }
+      - { path: /.well-known/openid-configuration, status: 404 }
+      - { path: /.well-known/oauth-authorization-server, status: 404 }
+      - { path: /.well-known/api-catalog, status: 404 }
+      - { path: /llms.txt, status: 404 }
+  - host: https://loopme.com
+    documents:
+      - { path: /.well-known/security.txt, status: 301, note: redirects to loopme.ai }
+notes: >-
+  No /.well-known discovery documents are published on any LoopMe host. Recorded
+  as absent (valid data). loopme.com 301-redirects to loopme.ai.

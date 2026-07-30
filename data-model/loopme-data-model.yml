@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/loopme-reporting-openapi.yml
+entities:
+  - name: App
+    id_field: app_key
+    domain: publisher
+    description: A publisher application or website that serves LoopMe ads.
+  - name: Campaign
+    id_field: campaign_id
+    domain: advertiser
+    description: An advertiser campaign.
+  - name: LineItem
+    id_field: line_item_id
+    domain: advertiser
+    description: A line item within a campaign.
+  - name: Creative
+    id_field: creative_id
+    domain: advertiser
+    description: A creative served under a line item.
+  - name: ReportPoint
+    domain: reporting
+    description: A time-bucketed row of metric totals in a report series.
+relationships:
+  - from: Campaign
+    to: LineItem
+    type: has_many
+    via: campaign_id
+  - from: LineItem
+    to: Creative
+    type: has_many
+    via: line_item_id
+  - from: LineItem
+    to: Campaign
+    type: belongs_to
+    via: campaign_id
+  - from: Creative
+    to: LineItem
+    type: belongs_to
+    via: line_item_id
+notes: >-
+  Derived from the Reporting API dimensions (app_key on the publisher endpoint;
+  campaign_id / line_item_id / creative_id on the advertiser endpoint). Metric
+  fields inside totals are dynamic and not enumerated in the public docs.

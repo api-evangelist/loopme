@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+source: https://wiki.loopme.cool/publishers/reporting-api
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://wiki.loopme.cool/publishers/reporting-api
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No formal deprecation or Sunset-header policy is published.
+sla:
+  url: null
+status_page: null
+support:
+  docs: https://wiki.loopme.cool/
+  legal: https://legal.loopme.com/
+deprecated_operations: []
+notes: >-
+  LoopMe publishes no public status page or formal deprecation policy. The
+  Reporting API is versioned in the URI path (/api/v1/). Mobile SDK lifecycle is
+  tracked via GitHub releases on loopme/android-united-sdk and
+  loopme/ios-united-sdk.

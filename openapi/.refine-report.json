@@ -1,0 +1,18 @@
+{
+  "provider": "loopme",
+  "sources": [
+    "loopme-ad-serving-api-openapi.yml",
+    "loopme-advertiser-reporting-api-openapi.yml",
+    "loopme-publisher-reporting-api-openapi.yml"
+  ],
+  "outputs": [
+    "loopme-ad-serving-api-openapi.yml",
+    "loopme-advertiser-reporting-api-openapi.yml",
+    "loopme-publisher-reporting-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

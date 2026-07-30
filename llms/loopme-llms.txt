@@ -1,0 +1,26 @@
+# LoopMe
+
+> LoopMe is a global brand-performance advertising platform that uses AI to bring brands into mobile and CTV apps, delivering higher campaign performance for advertisers and premium yield for publishers. Its developer surface consists of a REST Reporting API (publisher and advertiser statistics), a server-to-server (S2S) ad request API, and first-party United SDKs for Android and iOS.
+
+## APIs
+
+- [Reporting API](https://wiki.loopme.cool/publishers/reporting-api): Retrieve app/site and campaign statistics over REST (GET, api_auth_token query param, JSON, USD, UTC).
+- [S2S Ad Request API](https://wiki.loopme.cool/publishers/integrations/s2s): Server-to-server ad request endpoint returning ad payloads.
+
+## Specs
+
+- [Reporting API OpenAPI](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/openapi/loopme-reporting-openapi.yml)
+- [S2S OpenAPI](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/openapi/loopme-s2s-openapi.yml)
+
+## SDKs
+
+- [Android United SDK](https://github.com/loopme/android-united-sdk)
+- [iOS United SDK](https://github.com/loopme/ios-united-sdk)
+- [Prebid.js LoopMe bid adapter](https://docs.prebid.org/dev-docs/bidders/loopme.html)
+
+## Docs
+
+- [Developer Wiki](https://wiki.loopme.cool/)
+- [Publisher integrations](https://wiki.loopme.cool/publishers/integrations/s2s)
+- [Company site](https://loopme.ai/)
+- [Legal / Privacy / Terms](https://legal.loopme.com/)

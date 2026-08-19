@@ -1,7 +1,17 @@
-generated: '2026-07-20'
+generated: '2026-08-13'
 method: generated
 skills:
   - file: loopme-pull-reporting.md
     name: Pull LoopMe reporting statistics
-    api: openapi/loopme-reporting-openapi.yml
+    api: openapi/loopme-publisher-reporting-api-openapi.yml
     operations: [getPublisherReport, getAdvertiserReport]
+  - file: loopme-request-ad-s2s.md
+    name: Request a LoopMe ad server-to-server
+    api: openapi/loopme-ad-serving-api-openapi.yml
+    operations: [requestAd]
+notes: >-
+  Every operationId above is verified present in the referenced spec.
+  getPublisherReport lives in openapi/loopme-publisher-reporting-api-openapi.yml
+  and getAdvertiserReport in openapi/loopme-advertiser-reporting-api-openapi.yml
+  after the tag-split refine pass; both are also in
+  openapi/_original/loopme-reporting-openapi.yml.

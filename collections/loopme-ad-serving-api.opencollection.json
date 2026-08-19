@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LoopMe S2S Ad Request API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ad Serving",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request an ad",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://loopme.me/api/s2s/ads",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "query",
+                "description": "Unique application identifier provided by LoopMe."
+              },
+              {
+                "name": "ua",
+                "value": "",
+                "type": "query",
+                "description": "Device user agent string."
+              },
+              {
+                "name": "uid",
+                "value": "",
+                "type": "query",
+                "description": "Unique user identifier (IDFA, Google Advertiser ID, or cookie ID)."
+              },
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query",
+                "description": "Device IP address."
+              },
+              {
+                "name": "clientid",
+                "value": "",
+                "type": "query",
+                "description": "Client server name, used for debugging."
+              },
+              {
+                "name": "dnt",
+                "value": "",
+                "type": "query",
+                "description": "Do-not-track flag; 1 to disable tracking."
+              },
+              {
+                "name": "bundleid",
+                "value": "",
+                "type": "query",
+                "description": "App bundle ID from the store."
+              },
+              {
+                "name": "appname",
+                "value": "",
+                "type": "query",
+                "description": "Application name."
+              },
+              {
+                "name": "sdk",
+                "value": "",
+                "type": "query",
+                "description": "SDK version number."
+              },
+              {
+                "name": "exchange",
+                "value": "",
+                "type": "query",
+                "description": "Exchange or network name."
+              },
+              {
+                "name": "app_version",
+                "value": "",
+                "type": "query",
+                "description": "App version number."
+              },
+              {
+                "name": "pubname",
+                "value": "",
+                "type": "query",
+                "description": "Publisher name."
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude coordinate."
+              },
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude coordinate."
+              },
+              {
+                "name": "reward",
+                "value": "",
+                "type": "query",
+                "description": "Rewarded ad indicator; set to 1 for rewarded."
+              },
+              {
+                "name": "storeurl",
+                "value": "",
+                "type": "query",
+                "description": "App store URL."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "User language, 2-letter ISO code."
+              }
+            ]
+          },
+          "docs": "Requests an ad for the described device/app/user context. Returns an ad payload on success, an empty ads array when no ad is available, or an error object."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

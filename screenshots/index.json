@@ -6,5 +6,23 @@
     "source_type": "DeveloperPortal",
     "file": "loopme-2026-07-25T225535.png",
     "bytes": 39646
+  },
+  {
+    "repo": "loopme",
+    "captured_at": "2026-08-17T083139",
+    "source_url": "https://wiki.loopme.cool/",
+    "source_type": "DeveloperPortal",
+    "file": "loopme-2026-08-17T083139.png",
+    "bytes": 38395,
+    "capture": "playwright-local"
+  },
+  {
+    "repo": "loopme",
+    "captured_at": "2026-08-17T121137",
+    "source_url": "https://wiki.loopme.cool/",
+    "source_type": "DeveloperPortal",
+    "file": "loopme-2026-08-17T121137.png",
+    "bytes": 38368,
+    "capture": "playwright-local"
   }
 ]

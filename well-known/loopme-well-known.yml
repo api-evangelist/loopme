@@ -1,23 +1,73 @@
-generated: '2026-07-20'
-method: searched
-source: probe of /.well-known/ across LoopMe hosts
+generated: '2026-08-13'
+method: probed
+source: live probe of /.well-known/ and discovery paths across every LoopMe host
+result: none
 hosts:
   - host: https://reports.loopme.com
+    role: Reporting API base host
     documents:
       - { path: /.well-known/security.txt, status: 404 }
       - { path: /.well-known/openid-configuration, status: 404 }
       - { path: /.well-known/oauth-authorization-server, status: 404 }
       - { path: /.well-known/api-catalog, status: 404 }
+      - { path: /.well-known/agent-card.json, status: 404 }
+      - { path: /.well-known/agent.json, status: 404 }
+      - { path: /llms.txt, status: 404 }
+      - { path: /openapi.json, status: 404 }
+      - { path: /openapi.yaml, status: 404 }
+      - { path: /swagger.json, status: 404 }
+      - { path: /api-docs, status: 404 }
+    note: >-
+      Every path returns a real JSON 404 envelope
+      ({"error":"not_found","message":"No endpoint..."}) — an honest API 404,
+      not an SPA catch-all.
+  - host: https://loopme.me
+    role: S2S ad request host
+    documents:
+      - { path: /.well-known/security.txt, status: 0 }
+      - { path: /.well-known/openid-configuration, status: 204 }
+      - { path: /.well-known/oauth-authorization-server, status: 204 }
+      - { path: /.well-known/api-catalog, status: 204 }
+      - { path: /.well-known/agent-card.json, status: 204 }
+      - { path: /.well-known/agent.json, status: 204 }
+      - { path: /llms.txt, status: 204 }
+      - { path: /openapi.json, status: 204 }
+      - { path: /openapi.yaml, status: 204 }
+    note: >-
+      The ad-serving edge answers 204 No Content with an empty body for every
+      unmatched path. A 204 carries no document, so every one of these is a MISS,
+      not a hit.
   - host: https://loopme.ai
+    role: Company website
     documents:
       - { path: /.well-known/security.txt, status: 404 }
       - { path: /.well-known/openid-configuration, status: 404 }
       - { path: /.well-known/oauth-authorization-server, status: 404 }
+      - { path: /.well-known/api-catalog, status: 404 }
+      - { path: /.well-known/agent-card.json, status: 404 }
+      - { path: /.well-known/agent.json, status: 404 }
+      - { path: /llms.txt, status: 404 }
+      - { path: /openapi.json, status: 404 }
+  - host: https://wiki.loopme.cool
+    role: Developer wiki (Nextra/Next.js)
+    documents:
+      - { path: /.well-known/security.txt, status: 404 }
+      - { path: /.well-known/agent-card.json, status: 404 }
+      - { path: /.well-known/agent.json, status: 404 }
       - { path: /.well-known/api-catalog, status: 404 }
       - { path: /llms.txt, status: 404 }
+      - { path: /openapi.json, status: 404 }
+      - { path: /openapi.yaml, status: 404 }
+      - { path: /swagger.json, status: 404 }
+      - { path: /api-docs, status: 404 }
   - host: https://loopme.com
+    role: Legacy corporate domain
     documents:
       - { path: /.well-known/security.txt, status: 301, note: redirects to loopme.ai }
 notes: >-
-  No /.well-known discovery documents are published on any LoopMe host. Recorded
-  as absent (valid data). loopme.com 301-redirects to loopme.ai.
+  No /.well-known discovery document is served on any LoopMe host. Re-probed
+  2026-08-13 and unchanged from the 2026-07-20 round, now extended to the A2A
+  agent-card paths and the contract-discovery paths. Because every path missed,
+  NO WellKnown, SecurityTxt or AgentCard pointer is emitted in apis.yml — the
+  pre-existing WellKnown pointer was removed this round, since a pointer asserts
+  the provider serves that surface and this file records that it does not.

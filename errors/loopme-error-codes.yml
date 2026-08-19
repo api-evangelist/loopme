@@ -1,4 +1,4 @@
-generated: '2026-07-20'
+generated: '2026-08-13'
 method: searched
 source: https://wiki.loopme.cool/publishers/reporting-api
 format: custom-json
@@ -7,26 +7,82 @@ envelope:
   shape: '{ "errors": { "<code>": "<description>" } }'
   description: >-
     Reporting API errors are returned as a JSON object with an "errors" map of
-    numeric error code to human-readable description.
+    numeric error code to human-readable description. More than one code can be
+    returned in a single response (the published example returns 2002 and 5001
+    together), so consumers must iterate the map rather than read one code.
+  example: |
+    {
+      "errors": {
+        "2002": "Date range is in wrong format. Use one of the predefined values or custom date range format.",
+        "5001": "Country code is wrong. Three-letter code should be used."
+      }
+    }
+code_families:
+  '1xxx': authentication
+  '2xxx': date range validation
+  '3xxx': granularity validation
+  '4xxx': entity not found
+  '5xxx': country code validation
+  '6xxx': platform validation
 error_codes:
   - code: 1001
-    title: Missing or invalid api_auth_token
-    remediation: Provide a valid 16-character api_auth_token enabled in Account/Settings.
-  - code: 2002
-    title: Date range is in wrong format
+    title: Missing or invalid api_auth_token.
+    family: authentication
     remediation: >-
-      Use a predefined value (today, yesterday, days7, days30, days90) or the
-      custom YYYY-MM-DD:YYYY-MM-DD range format.
+      Provide a valid 16-character api_auth_token enabled in the LoopMe dashboard
+      under Account/Settings > Reporting API Settings.
+  - code: 2001
+    title: Date range is not specified.
+    family: date-range
+    remediation: Send the required date_range parameter.
+  - code: 2002
+    title: >-
+      Date range is in wrong format. Use one of the predefined values (today,
+      yesterday, days7, days30, days90) or custom date range format.
+    family: date-range
+    remediation: Use a predefined value or the custom YYYY-MM-DD:YYYY-MM-DD range format.
+  - code: 2003
+    title: Custom date range should match the pattern from_date:to_date (YYYY-MM-DD:YYYY-MM-DD).
+    family: date-range
+    remediation: Correct the custom range to the from_date:to_date pattern.
+  - code: 3001
+    title: 'Granularity is in wrong format. Supported values: hour, day, week, month.'
+    family: granularity
+    remediation: Set granularity to hour, day, week or month.
   - code: 4001
-    title: App not found
-    remediation: Supply a valid app_key belonging to the authenticated account.
+    title: App is not found. Might be wrong app_key.
+    family: not-found
+    remediation: Supply an app_key belonging to the authenticated account.
   - code: 4002
-    title: Campaign not found
-    remediation: Supply a valid campaign_id belonging to the authenticated account.
+    title: Campaign is not found. Might be wrong campaign_id.
+    family: not-found
+    remediation: Supply a campaign_id belonging to the authenticated account.
+  - code: 4003
+    title: LineItem is not found. Might be wrong line_item_id.
+    family: not-found
+    remediation: Supply a line_item_id belonging to the authenticated account.
+  - code: 4004
+    title: Creative is not found. Might be wrong creative_id.
+    family: not-found
+    remediation: Supply a creative_id belonging to the authenticated account.
   - code: 5001
-    title: Country code is wrong
+    title: Country code is wrong. Three-letter code should be used.
+    family: country-code
     remediation: Use an ISO 3166-1 alpha-3 three-letter country code (e.g. USA, GBR).
+  - code: 6001
+    title: 'Platform is wrong. Supported values: ios, android and website.'
+    family: platform
+    remediation: Set platform to ios, android or website.
+s2s_errors:
+  source: https://wiki.loopme.cool/publishers/integrations/s2s
+  envelope: '{ "status": "error", "errorMessage": "<description>" }'
+  notes: >-
+    The S2S ad request API returns HTTP 404 with the status/errorMessage envelope
+    on failure, and HTTP 200 with an empty ads array when no ad is available —
+    a no-ad result is a success, not an error.
 notes: >-
-  The S2S ad request API returns HTTP 404 with { "status": "error",
-  "errorMessage": "..." } on failure, and HTTP 200 with an empty ads array when
-  no ad is available.
+  Complete published table re-read 2026-08-13 from the Reporting API reference;
+  this round added 2001, 2003, 3001, 4003, 4004 and 6001, which the previous
+  capture missed, and corrected the titles to the provider's verbatim wording.
+  No throttling / quota code exists in the table (see
+  rate-limits/loopme-rate-limits.yml).

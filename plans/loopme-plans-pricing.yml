@@ -1,0 +1,23 @@
+generated: '2026-08-13'
+method: searched
+source: https://loopme.ai/
+plan_count: 0
+plans: []
+notes: >-
+  LoopMe publishes no public pricing, plans or rate card. There is no /pricing
+  page on loopme.ai (HTTP 404) and no pricing entry in the WordPress page
+  sitemap (https://loopme.ai/page-sitemap.xml, 200 — 27 pages, none of them
+  pricing). Commercial terms are set per account: publishers and advertisers are
+  onboarded by a LoopMe account manager (the developer wiki repeatedly says
+  "contact your LoopMe account manager" to obtain app keys and publisher IDs),
+  and the Publisher / Advertiser Terms & Conditions at
+  https://legal.loopme.com/legal-centre reference an Order Form for the
+  commercial terms. The Reporting API and the S2S ad request API are entitlements
+  of an existing LoopMe account rather than separately priced products.
+evidence:
+  - url: https://loopme.ai/pricing
+    status: 404
+  - url: https://loopme.ai/page-sitemap.xml
+    status: 200
+  - url: https://legal.loopme.com/legal-centre
+    status: 200

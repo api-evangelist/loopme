@@ -1,0 +1,25 @@
+generated: '2026-08-13'
+method: searched
+source: https://wiki.loopme.cool/publishers/reporting-api
+limit_count: 0
+limits: []
+response_headers: []
+exhaustion_status: null
+notes: >-
+  LoopMe documents no rate limits for either public API surface. The Reporting
+  API reference (https://wiki.loopme.cool/publishers/reporting-api) documents
+  authentication, parameters, the response shape and a complete error-code
+  table, and that table contains no throttling / quota code — the eleven
+  published codes are all validation or not-found errors (1001, 2001, 2002,
+  2003, 3001, 4001-4004, 5001, 6001). No 429 response, no Retry-After, and no
+  X-RateLimit-*/RateLimit-* headers are described anywhere in the wiki. The S2S
+  ad request reference (https://wiki.loopme.cool/publishers/integrations/s2s)
+  documents only 200-with-ad, 200-with-empty-ads and an HTTP 404 error envelope.
+  Recorded as an honest zero: undocumented, not observed. Limits are not
+  observable anonymously because both surfaces require a provisioned
+  api_auth_token or appId.
+evidence:
+  - url: https://wiki.loopme.cool/publishers/reporting-api
+    status: 200
+  - url: https://wiki.loopme.cool/publishers/integrations/s2s
+    status: 200

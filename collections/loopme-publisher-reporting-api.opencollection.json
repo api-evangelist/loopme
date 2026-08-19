@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LoopMe Reporting Ad Serving Publisher Reporting API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_auth_token",
+      "value": "{{api_auth_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Publisher Reporting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve publisher (app/site) statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://reports.loopme.com/api/v1/reports/apps",
+            "params": [
+              {
+                "name": "api_auth_token",
+                "value": "",
+                "type": "query",
+                "description": "16-character LoopMe API authentication token."
+              },
+              {
+                "name": "date_range",
+                "value": "",
+                "type": "query",
+                "description": "Predefined value (today, yesterday, days7, days30, days90) or a custom range in YYYY-MM-DD:YYYY-MM-DD format."
+              },
+              {
+                "name": "granularity",
+                "value": "",
+                "type": "query",
+                "description": "Time bucketing for the series."
+              },
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query",
+                "description": "ISO 3166-1 alpha-3 country code (e.g. USA, GBR)."
+              },
+              {
+                "name": "platform",
+                "value": "",
+                "type": "query",
+                "description": "Platform filter."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of dimensions to group results by."
+              },
+              {
+                "name": "app_key",
+                "value": "",
+                "type": "query",
+                "description": "Unique application or website identifier."
+              }
+            ]
+          },
+          "docs": "Returns app and site statistics for the authenticated LoopMe publisher account over the requested date range and granularity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

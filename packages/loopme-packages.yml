@@ -1,4 +1,4 @@
-generated: '2026-07-20'
+generated: '2026-08-13'
 method: searched
 source: https://github.com/loopme
 packages:
@@ -7,30 +7,108 @@ packages:
     registry: github
     name: android-united-sdk
     url: https://github.com/loopme/android-united-sdk
+    install: 'Download the AAR/release artifact from GitHub releases'
     official: true
+    version: 9.0.9
+    published: '2024-12-03'
+    version_source: https://api.github.com/repos/loopme/android-united-sdk/releases
     description: >-
       LoopMe United SDK for Android — combines multiple premium ads technologies
       (interstitial, rewarded video, banner, mediation adapters) for app
-      publishers. Distributed via GitHub releases (latest 9.0.9).
+      publishers. Distributed via GitHub releases; no com.loopme group exists on
+      Maven Central (search.maven.org g:com.loopme returns 0 artifacts).
+  - language: objective-c
+    platform: ios
+    registry: cocoapods
+    name: LoopMeUnitedSDK
+    url: https://cocoapods.org/pods/LoopMeUnitedSDK
+    install: "pod 'LoopMeUnitedSDK'"
+    official: true
+    version: 7.4.9
+    published: '2024-03-04'
+    version_source: https://trunk.cocoapods.org/api/v1/pods/LoopMeUnitedSDK
+    description: >-
+      LoopMe United SDK for iOS on the CocoaPods trunk (43 published versions;
+      all four trunk owners hold @loopme.com addresses, so first-party).
+    note: >-
+      DECAY SIGNAL — the CocoaPods trunk is nine releases behind the provider's
+      own GitHub releases (trunk 7.4.9, 2024-03-04; GitHub 7.4.24, 2024-12-10).
+      An integrator following the CocoaPods path gets a build 14 iterations old.
   - language: objective-c
     platform: ios
     registry: github
     name: ios-united-sdk
     url: https://github.com/loopme/ios-united-sdk
+    install: 'Download the framework from GitHub releases'
     official: true
+    version: 7.4.24
+    published: '2024-12-10'
+    version_source: https://api.github.com/repos/loopme/ios-united-sdk/releases
     description: >-
       LoopMe United SDK for iOS — combines multiple premium ads technologies for
-      app publishers, with SKAdNetwork support.
+      app publishers, with SKAdNetwork support. The current release stream.
   - language: javascript
-    registry: github
-    name: Prebid.js LoopMe bid adapter
+    registry: npm
+    name: prebid.js
     url: https://docs.prebid.org/dev-docs/bidders/loopme.html
-    official: true
+    install: 'Build Prebid.js with the loopMeBidAdapter module'
+    official: false
+    version: 11.29.0
+    published: '2026-08-06'
+    version_source: https://registry.npmjs.org/prebid.js
     description: >-
-      First-party LoopMe bidder adapter for Prebid.js header bidding
-      (contributed to the Prebid.js project).
+      LoopMe maintains the first-party loopMeBidAdapter module inside the
+      upstream Prebid.js project; LoopMe publishes no npm package of its own, so
+      the version recorded here is Prebid.js's, not LoopMe's. official:false
+      marks the package (Prebid.org's), not the adapter code (LoopMe's).
+  - language: javascript
+    registry: cdn
+    name: LoopMe ad tag loaders
+    url: https://m.loopme.me/lm.single.js
+    install: '<script id="LOOPME_script" src="https://m.loopme.me/lm.single.js" data-app-key="...">'
+    official: true
+    version: null
+    published: null
+    note: >-
+      Distribution is unpinned — the loader URLs carry no version segment and
+      lm.single.js rewrites itself to lm.main.js at runtime, so there is no
+      registry metadata endpoint to query and an integrator cannot tell which
+      build they are getting either. Checked 2026-08-13; recorded as null rather
+      than guessed. Command surface catalogued in
+      components/loopme-components.yml.
+  - language: c-sharp
+    platform: windows-phone
+    registry: github
+    name: Windows Phone SDK
+    url: https://wiki.loopme.cool/publishers/integrations/mobile-sdk
+    official: true
+    version: null
+    published: null
+    note: >-
+      The Mobile SDK page still lists a Windows Phone SDK alongside iOS and
+      Android, but no matching repository exists in the github.com/loopme org
+      (the org holds android-united-sdk, ios-united-sdk and four Prebid forks),
+      so no version could be read. Checked 2026-08-13.
+excluded:
+  - name: com.cleveradssolutions:loopme
+    registry: maven
+    version_seen: 9.0.9.0
+    reason: >-
+      Third-party CleverAdsSolutions mediation adapter wrapping the LoopMe SDK,
+      not a first-party LoopMe package.
+  - name: '@loopme/common'
+    registry: npm
+    version_seen: 1.0.58
+    reason: >-
+      Namespace collision — sole npm maintainer is an unrelated personal account
+      (thanh.161003@gmail.com) with no repository, homepage or LoopMe reference.
+  - name: loopme
+    registry: npm
+    version_seen: 1.0.7
+    reason: 'Unrelated project ("markdown-based workspace and knowledge base").'
 notes: >-
-  LoopMe distributes its first-party mobile SDKs through GitHub releases rather
-  than Maven Central / CocoaPods trunk. The Maven artifact
-  com.cleveradssolutions:loopme is a third-party CleverAdsSolutions mediation
-  adapter, not a first-party LoopMe package, and is excluded here.
+  Versions and dates read 2026-08-13 from the GitHub releases API, the CocoaPods
+  trunk API and registry.npmjs.org. Both first-party mobile SDK release streams
+  last shipped in December 2024, roughly twenty months before this check; the
+  android-united-sdk repository itself was last pushed 2026-04-27, so the repo
+  is maintained even though no release has been cut.

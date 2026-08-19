@@ -1,0 +1,87 @@
+generated: '2026-08-13'
+method: searched
+source: https://wiki.loopme.cool/publishers/integrations/ad-tags
+summary: >-
+  LoopMe's client-side surface is ad units, not dashboard widgets: CDN-hosted
+  JavaScript ad tags dropped into a third-party ad server or a web page, plus a
+  hosted FLEX web unit. Every tag is keyed by a data-app-key issued by a LoopMe
+  account manager. Distinct from the mobile United SDKs catalogued in
+  packages/loopme-packages.yml.
+families:
+  - name: In-app HTML ad tags
+    description: >-
+      HTML/JS tags served through certified third-party ad servers (Google DFP,
+      MoPub, AdTech, OpenX). Each tag loads mraid.js plus a LoopMe loader script
+      into a <div id="LOOPME_widget">, and supports click tracking and failover
+      (mopub://failload) when no ad is available, all ads are frequency-capped,
+      or the LoopMe ad server does not respond.
+    docs: https://wiki.loopme.cool/publishers/integrations/ad-tags
+    loaders:
+      - name: lm.single.js
+        url: https://m.loopme.me/lm.single.js
+        format: Phone and Tablet Fullscreen
+        probed: '2026-08-13'
+        status: 200
+      - name: lm.main.js
+        url: https://m.loopme.me/lm.main.js
+        format: Runtime loaded by the lm.single.js bootstrap
+        probed: '2026-08-13'
+        status: 200
+      - name: lm.video.js
+        url: https://m.loopme.me/lm.video.js
+        format: Phone and Tablet Fullscreen Video
+        probed: '2026-08-13'
+        status: 404
+        note: Documented in the ad-tags reference but no longer served.
+      - name: lm.mpu.js
+        url: https://m.loopme.me/lm.mpu.js
+        format: 300x250 MPU / MRect
+        probed: '2026-08-13'
+        status: 200
+      - name: lm.leaderboard.js
+        url: https://m.loopme.me/lm.leaderboard.js
+        format: 728x90 tablet leaderboard
+        probed: '2026-08-13'
+        status: 404
+        note: Documented in the ad-tags reference but no longer served.
+    attributes:
+      - data-app-key
+      - data-cookie
+      - data-clickurl
+      - data-device-id
+      - data-fail
+    versioning: unpinned
+    versioning_note: >-
+      The loader URLs carry no version segment. lm.single.js is a two-line
+      bootstrap that rewrites its own script element to lm.main.js, so the
+      integrator always receives whatever LoopMe currently serves and cannot pin
+      a build. Recorded as an honest finding, not a gap in this artifact.
+  - name: FLEX web ad unit
+    description: >-
+      Multi-format web ad slot for mobile web monetization — out-stream
+      VAST/VPAID video, fullscreen web scroller, MPU banner scroller, 320x50
+      phone banner, and a publisher-supplied pass-back tag when LoopMe has no
+      ad. Integrates directly in the page or as a DFP third-party creative
+      (safe-frame must be off). Tags are produced by the LoopMe FLEX Tag
+      Generator against per-spot app keys.
+    docs: https://wiki.loopme.cool/publishers/integrations/flex-web
+    demo: https://demopages.loopme.me/flex.html
+  - name: VAST tags
+    description: >-
+      VAST/VPAID tag integration for video inventory, including VAST URL macros
+      for cachebusting, device ID, creative info and geo.
+    docs: https://wiki.loopme.cool/publishers/integrations/vast
+  - name: Prebid.js bid adapter
+    description: >-
+      Client-side header-bidding adapter registered in Prebid.js; banner and
+      video setup documented in the LoopMe wiki.
+    docs: https://docs.prebid.org/dev-docs/bidders/loopme.html
+    banner_setup: https://wiki.loopme.cool/publishers/integrations/header-bidding/banner
+    video_setup: https://wiki.loopme.cool/publishers/integrations/header-bidding/video
+notes: >-
+  No embedded dashboard, no web-component library, and no npm-published web
+  package backs these tags — distribution is CDN script tags only. Probed
+  2026-08-13: two of the four loader URLs published in the ad-tags reference
+  (lm.video.js, lm.leaderboard.js) now return 404 on m.loopme.me, while
+  lm.single.js, lm.main.js and lm.mpu.js return 200. The documentation has
+  drifted from what the CDN serves.

@@ -1,26 +1,46 @@
 # LoopMe
 
-> LoopMe is a global brand-performance advertising platform that uses AI to bring brands into mobile and CTV apps, delivering higher campaign performance for advertisers and premium yield for publishers. Its developer surface consists of a REST Reporting API (publisher and advertiser statistics), a server-to-server (S2S) ad request API, and first-party United SDKs for Android and iOS.
+> LoopMe is a global brand-performance advertising platform that uses AI to bring brands into mobile and CTV apps, delivering higher campaign performance for advertisers and premium yield for publishers. Its developer surface consists of a REST Reporting API (publisher and advertiser statistics), a server-to-server (S2S) ad request API, first-party United SDKs for Android and iOS, CDN-hosted web ad tags, and a Prebid.js header-bidding adapter. LoopMe publishes no OpenAPI, no /llms.txt, no /.well-known documents and no MCP or A2A surface; the specifications below are API Evangelist reconstructions of the published documentation.
 
 ## APIs
 
-- [Reporting API](https://wiki.loopme.cool/publishers/reporting-api): Retrieve app/site and campaign statistics over REST (GET, api_auth_token query param, JSON, USD, UTC).
-- [S2S Ad Request API](https://wiki.loopme.cool/publishers/integrations/s2s): Server-to-server ad request endpoint returning ad payloads.
+- [Reporting API](https://wiki.loopme.cool/publishers/reporting-api): Publisher (app/site) and advertiser (campaign/line item/creative) statistics. GET only, `api_auth_token` query parameter, JSON, USD, UTC. Base `https://reports.loopme.com/api/v1`.
+- [S2S Ad Request API](https://wiki.loopme.cool/publishers/integrations/s2s): Server-to-server ad request returning an MRAID ad payload or an empty ads array. Identified by `appId`, no token. Base `https://loopme.me/api/s2s`.
 
 ## Specs
 
-- [Reporting API OpenAPI](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/openapi/loopme-reporting-openapi.yml)
-- [S2S OpenAPI](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/openapi/loopme-s2s-openapi.yml)
+- [Publisher Reporting OpenAPI](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/openapi/loopme-publisher-reporting-api-openapi.yml)
+- [Advertiser Reporting OpenAPI](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/openapi/loopme-advertiser-reporting-api-openapi.yml)
+- [S2S Ad Serving OpenAPI](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/openapi/loopme-ad-serving-api-openapi.yml)
 
-## SDKs
+## Semantics
 
-- [Android United SDK](https://github.com/loopme/android-united-sdk)
-- [iOS United SDK](https://github.com/loopme/ios-united-sdk)
+- [Authentication](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/authentication/loopme-authentication.yml): 16-character `api_auth_token` query parameter, enabled per account in the dashboard.
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/conventions/loopme-conventions.yml): No pagination, no idempotency key, UTC dates, USD currency.
+- [Error codes](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/errors/loopme-error-codes.yml): The eleven published Reporting API codes and the `{ "errors": { code: description } }` envelope.
+- [Rate limits](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/rate-limits/loopme-rate-limits.yml): None documented.
+- [Plans and pricing](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/plans/loopme-plans-pricing.yml): None published; commercial terms are set per account.
+- [Data model](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/data-model/loopme-data-model.yml): App, Campaign, LineItem, Creative, ReportPoint.
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/conformance/loopme-conformance.yml): ads.txt, TAG, IAB TCF v2, US Privacy, VAST/VPAID, MRAID, SKAdNetwork, Prebid.
+- [Sandbox](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/sandbox/loopme-sandbox.yml): No API sandbox; device-side tester apps only.
+
+## SDKs and components
+
+- [Android United SDK](https://github.com/loopme/android-united-sdk) — 9.0.9 (2024-12-03)
+- [iOS United SDK](https://github.com/loopme/ios-united-sdk) — 7.4.24 (2024-12-10); CocoaPods `LoopMeUnitedSDK` trails at 7.4.9 (2024-03-04)
 - [Prebid.js LoopMe bid adapter](https://docs.prebid.org/dev-docs/bidders/loopme.html)
+- [Web ad tags and FLEX unit](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/components/loopme-components.yml) — unpinned CDN loaders on `m.loopme.me`
+
+## Agent skills
+
+- [Pull LoopMe reporting statistics](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/skills/loopme-pull-reporting.md)
+- [Request a LoopMe ad server-to-server](https://raw.githubusercontent.com/api-evangelist/loopme/refs/heads/main/skills/loopme-request-ad-s2s.md)
 
 ## Docs
 
-- [Developer Wiki](https://wiki.loopme.cool/)
-- [Publisher integrations](https://wiki.loopme.cool/publishers/integrations/s2s)
+- [Developer wiki](https://wiki.loopme.cool/)
+- [Macros reference](https://wiki.loopme.cool/demand-partners/macros)
+- [ads.txt for LoopMe](https://wiki.loopme.cool/publishers/ads-txt)
+- [Test apps](https://wiki.loopme.cool/publishers/integrations/test-apps)
 - [Company site](https://loopme.ai/)
-- [Legal / Privacy / Terms](https://legal.loopme.com/)
+- [Legal Centre](https://legal.loopme.com/legal-centre) / [Privacy Centre](https://legal.loopme.com/privacy-center)

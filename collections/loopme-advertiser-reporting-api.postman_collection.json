@@ -1,0 +1,371 @@
+{
+  "item": [
+    {
+      "id": "9265bd0e-de4f-4641-9540-bdad69e0f382",
+      "name": "Advertiser Reporting",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a93183b-ffba-4293-a306-e3c7afc71afb",
+          "name": "Retrieve advertiser (campaign) statistics",
+          "request": {
+            "name": "Retrieve advertiser (campaign) statistics",
+            "description": {
+              "content": "Returns campaign, line item, and creative statistics for the authenticated LoopMe advertiser account over the requested date range and granularity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports",
+                "campaigns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_auth_token",
+                  "value": "<string>",
+                  "description": "(Required) 16-character LoopMe API authentication token."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_range",
+                  "value": "<string>",
+                  "description": "(Required) Predefined value (today, yesterday, days7, days30, days90) or a custom range in YYYY-MM-DD:YYYY-MM-DD format."
+                },
+                {
+                  "disabled": false,
+                  "key": "granularity",
+                  "value": "<string>",
+                  "description": "Time bucketing for the series."
+                },
+                {
+                  "disabled": false,
+                  "key": "country_code",
+                  "value": "<string>",
+                  "description": "ISO 3166-1 alpha-3 country code (e.g. USA, GBR)."
+                },
+                {
+                  "disabled": false,
+                  "key": "platform",
+                  "value": "<string>",
+                  "description": "Platform filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "group_by",
+                  "value": "<string>",
+                  "description": "Comma-separated list of dimensions to group results by."
+                },
+                {
+                  "disabled": false,
+                  "key": "campaign_id",
+                  "value": "<integer>",
+                  "description": "Integer campaign identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "line_item_id",
+                  "value": "<integer>",
+                  "description": "Integer line item identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "creative_id",
+                  "value": "<integer>",
+                  "description": "Integer creative identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68c36f2b-ff5e-4e20-8db6-92e3792b81d3",
+              "name": "Report series",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_auth_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "platform",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "campaign_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "line_item_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "creative_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_auth_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"granularity\": \"day\",\n  \"series\": [\n    {\n      \"date\": \"2026-07-01 00:00:00 UTC\",\n      \"totals\": {\n        \"key_0\": 9843.1889007466,\n        \"key_1\": 8036.163173080977\n      }\n    },\n    {\n      \"date\": \"2026-07-01 00:00:00 UTC\",\n      \"totals\": {\n        \"key_0\": 6339,\n        \"key_1\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88f26e03-210e-44ed-827b-9a84129dd7ee",
+              "name": "Request error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_auth_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "platform",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "campaign_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "line_item_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "creative_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_auth_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": {\n    \"1001\": \"Missing or invalid api_auth_token\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "214471a5-b707-4d9c-a1f8-5bfe5cc54492",
+              "name": "Missing or invalid api_auth_token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_auth_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "platform",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "campaign_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "line_item_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "creative_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_auth_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": {\n    \"1001\": \"Missing or invalid api_auth_token\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://reports.loopme.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_auth_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5f80ad9d-7693-4c14-bae3-f9af2ab971b9",
+    "name": "LoopMe Reporting Ad Serving Advertiser Reporting API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The LoopMe Reporting API allows third-party servers to retrieve app, site, and campaign statistics of LoopMe user accounts via REST. There is a publisher reporting endpoint (apps/sites) and an advertiser reporting endpoint (campaigns). All requests use GET and are authenticated with a 16-character API authentication token passed as the api_auth_token query parameter, which is enabled in the LoopMe dashboard Account/Settings. Responses are JSON, currency is USD, and all times are UTC.\n\nContact Support:\n Name: LoopMe Support",
+      "type": "text/plain"
+    }
+  }
+}

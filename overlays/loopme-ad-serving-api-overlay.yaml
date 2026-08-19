@@ -1,0 +1,48 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the LoopMe S2S Ad Request API
+  version: 1.0.0
+extends: openapi/loopme-ad-serving-api-openapi.yml
+x-generated: '2026-08-13'
+x-method: generated
+x-source: >-
+  Enhancements derived from https://wiki.loopme.cool/publishers/integrations/s2s
+  and the artifacts in this repo. Never applied to the harvested spec; the
+  original stays at openapi/_original/loopme-s2s-openapi.yml.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-artifacts:
+        conventions: conventions/loopme-conventions.yml
+        errors: errors/loopme-error-codes.yml
+        sandbox: sandbox/loopme-sandbox.yml
+        conformance: conformance/loopme-conformance.yml
+        components: components/loopme-components.yml
+      x-authentication-model: >-
+        No token. The publisher's LoopMe-provisioned appId identifies the caller;
+        it is a required query parameter, not a credential header.
+      x-no-ad-is-success: >-
+        HTTP 200 with an empty ads array is the documented no-fill result, not an
+        error. Only HTTP 404 carries the { status, errorMessage } error envelope.
+  - target: $.paths['/ads'].get
+    update:
+      x-agentic-access:
+        action-class: connected
+        consequence: read
+        note: >-
+          Server-to-server ad rendering. Not an agent-appropriate tool — it
+          returns executable ad HTML for a device context, and is excluded from
+          the derived MCP tool list in mcp/loopme-mcp.yml.
+      x-response-media:
+        format: MRAIDv1
+        note: >-
+          The ads[].script field carries ad HTML including a LoopMe loader script
+          from m.loopme.me plus impression/click beacon URLs. Macro substitution
+          is documented at https://wiki.loopme.cool/demand-partners/macros.
+  - target: $.tags[?(@.name=='Ad Serving')]
+    update:
+      description: >-
+        Server-to-server ad request surface for third-party ad servers and
+        exchanges integrating LoopMe demand.
+      externalDocs:
+        url: https://wiki.loopme.cool/publishers/integrations/s2s

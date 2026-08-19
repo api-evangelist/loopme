@@ -1,0 +1,103 @@
+generated: '2026-08-13'
+method: searched
+source: https://wiki.loopme.cool/
+summary: >-
+  LoopMe's conformance surface is almost entirely ad-industry (IAB Tech Lab /
+  IAB Europe / TAG / Apple) rather than general web-API. The public REST
+  surfaces are plain query-parameter-authenticated GET endpoints with a custom
+  JSON error envelope: no OAuth2, no OIDC, no RFC 9457 problem details, no
+  standardized pagination or idempotency contract.
+standards:
+  - id: ads-txt
+    name: IAB Tech Lab ads.txt / app-ads.txt
+    conforms: true
+    evidence: >-
+      LoopMe publishes its authorized-seller line and instructs publishers to add
+      "loopme.com, <publisher id>, DIRECT, 6c8d5f95897a5a3b" (or RESELLER) to
+      ads.txt / app-ads.txt, and states LoopMe only buys from authorized sellers.
+    source: https://wiki.loopme.cool/publishers/ads-txt
+  - id: tag-registry
+    name: Trustworthy Accountability Group (TAG) registry
+    conforms: true
+    evidence: >-
+      LoopMe publishes its TAG ID 6c8d5f95897a5a3b as the certification-authority
+      ID used in ads.txt entries, and links the TAG registry.
+    source: https://wiki.loopme.cool/publishers/ads-txt
+  - id: iab-tcf-v2
+    name: IAB Europe Transparency & Consent Framework v2
+    conforms: true
+    evidence: >-
+      Macro reference publishes ${GDPR}, ${GDPR_CONSENT_109} (URL-safe
+      base64 TC string) and ${ADDTL_CONSENT} (Google Additional Consent) macros,
+      plus the legacy TCF v1 {user_consent} macro.
+    source: https://wiki.loopme.cool/demand-partners/macros
+  - id: ccpa-us-privacy
+    name: IAB CCPA Compliance Framework (US Privacy string)
+    conforms: true
+    evidence: LoopMe publishes the ${US_PRIVACY} macro for the CCPA consent string.
+    source: https://wiki.loopme.cool/demand-partners/macros
+  - id: vast
+    name: IAB VAST / VPAID video ad serving
+    conforms: true
+    evidence: >-
+      Dedicated VAST integration page; FLEX web unit documents out-stream
+      VAST/VPAID video delivery and VAST URL macros are published.
+    source: https://wiki.loopme.cool/publishers/integrations/vast
+  - id: mraid
+    name: IAB MRAID (mobile rich media)
+    conforms: true
+    evidence: >-
+      S2S ad response returns "type": "MRAIDv1" and ad tags load mraid.js in the
+      published snippets.
+    source: https://wiki.loopme.cool/publishers/integrations/s2s
+  - id: prebid
+    name: Prebid.js header bidding (OpenRTB-based)
+    conforms: true
+    evidence: >-
+      First-party LoopMe bid adapter documented in Prebid.js, with banner and
+      video header-bidding integration pages in the LoopMe wiki.
+    source: https://docs.prebid.org/dev-docs/bidders/loopme.html
+  - id: skadnetwork
+    name: Apple SKAdNetwork
+    conforms: true
+    evidence: >-
+      LoopMe publishes its SKAdNetwork IDs page for inclusion in publisher
+      Info.plist SKAdNetworkItems.
+    source: https://wiki.loopme.cool/demand-partners/skadnetwork-ids
+  - id: mmp-attribution
+    name: Mobile measurement partner install / in-app event attribution
+    conforms: true
+    evidence: >-
+      LoopMe states it is certified with AppsFlyer, Adjust and Kochava for
+      install and in-app event attribution.
+    source: https://wiki.loopme.cool/demand-partners/event-attribution
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: false
+    evidence: >-
+      Reporting API authenticates with a 16-character api_auth_token in the query
+      string; no OAuth2 securityScheme in any spec and no OAuth docs.
+  - id: oidc
+    name: OpenID Connect
+    conforms: false
+    evidence: /.well-known/openid-configuration returns 404 on every LoopMe host.
+  - id: rfc9457-problem-details
+    name: RFC 9457 Problem Details for HTTP APIs
+    conforms: false
+    evidence: >-
+      Errors use a custom envelope { "errors": { "<code>": "<description>" } };
+      no application/problem+json media type is published.
+  - id: rfc9116-security-txt
+    name: RFC 9116 security.txt
+    conforms: false
+    evidence: /.well-known/security.txt returns 404 on reports.loopme.com and loopme.ai.
+  - id: idempotency-key
+    name: Idempotency-Key convention
+    conforms: false
+    evidence: >-
+      Both public surfaces are read-only GET; no idempotency key header or
+      parameter is documented.
+notes: >-
+  Derived and searched from the LoopMe developer wiki plus the Prebid.js bidder
+  docs. Certifications and privacy programs (ePrivacyseal, TAG) are recorded
+  separately in security/loopme-trust-center.yml.

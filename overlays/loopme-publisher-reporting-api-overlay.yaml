@@ -1,0 +1,48 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the LoopMe Publisher Reporting API
+  version: 1.0.0
+extends: openapi/loopme-publisher-reporting-api-openapi.yml
+x-generated: '2026-08-13'
+x-method: generated
+x-source: >-
+  Enhancements derived from https://wiki.loopme.cool/publishers/reporting-api and
+  the artifacts in this repo. Never applied to the harvested spec; the original
+  stays at openapi/_original/loopme-reporting-openapi.yml.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-artifacts:
+        authentication: authentication/loopme-authentication.yml
+        conventions: conventions/loopme-conventions.yml
+        errors: errors/loopme-error-codes.yml
+        data_model: data-model/loopme-data-model.yml
+        rate_limits: rate-limits/loopme-rate-limits.yml
+        lifecycle: lifecycle/loopme-lifecycle.yml
+      x-error-envelope:
+        shape: '{ "errors": { "<code>": "<description>" } }'
+        multi_error: true
+        catalog: errors/loopme-error-codes.yml
+      x-rate-limits:
+        documented: false
+        ref: rate-limits/loopme-rate-limits.yml
+      x-idempotency:
+        supported: false
+        reason: Read-only GET surface; no idempotency key is documented.
+  - target: $.paths['/reports/apps'].get
+    update:
+      x-agentic-access:
+        action-class: connected
+        consequence: read
+      x-error-codes: [1001, 2001, 2002, 2003, 3001, 4001, 5001, 6001]
+      x-pagination:
+        style: none
+        note: >-
+          The full series for the requested date_range is returned; shape is
+          controlled by granularity and group_by rather than paging.
+  - target: $.tags[?(@.name=='Publisher Reporting')]
+    update:
+      description: >-
+        App and site performance statistics for LoopMe publisher accounts.
+      externalDocs:
+        url: https://wiki.loopme.cool/publishers/reporting-api

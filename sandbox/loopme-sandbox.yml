@@ -1,0 +1,67 @@
+generated: '2026-08-13'
+method: searched
+source: https://wiki.loopme.cool/publishers/integrations/test-apps
+summary: >-
+  LoopMe ships no API sandbox and no test-vs-live key separation: there is one
+  set of production credentials (a 16-character api_auth_token for the Reporting
+  API, an app key / appId for ad serving) and no test-mode prefix. What LoopMe
+  does publish is device-side ad testing — first-party tester apps that render a
+  live ad against your own app key, a QR-code creative previewer, and a hosted
+  FLEX web demo page.
+test_mode:
+  supported: false
+  key_prefixes: []
+  notes: >-
+    No test/live key modes are documented. The Reporting API token is enabled
+    per-account in the dashboard (Account/Settings > Reporting API Settings) and
+    is a production credential. Ad-serving requires an app key issued by a LoopMe
+    account manager; the wiki notes "It is expected you have at least one LoopMe
+    app key and an ad targeted to this app key" before the tester apps are useful.
+tester_apps:
+  - name: LoopMe X tester (iOS)
+    url: https://tsfr.io/loopme-test-ios
+    purpose: >-
+      Create an ad spot inside the app, tap "Load" then "Show" to render an ad
+      targeted at your own app key.
+  - name: LoopMe X tester (Android)
+    url: https://tsfr.io/loopme-test-android
+    purpose: Android build of the LoopMe X tester.
+  - name: LoopMe Creative Portfolio (iOS)
+    url: https://apps.apple.com/us/app/loopme-creative-portfolio/id1440806095
+    purpose: QR-code preview of creatives booked in the LoopMe Booking Tool.
+  - name: LoopMe QR (Android)
+    url: https://play.google.com/store/apps/details?id=com.loopme.loopmeqr
+    purpose: Android build of the QR-code creative previewer.
+demo_surfaces:
+  - name: FLEX web ad tag demo
+    url: https://demopages.loopme.me/flex.html
+    status: 200
+    purpose: >-
+      Hosted demo of the FLEX web ad unit (out-stream VAST/VPAID video,
+      fullscreen web scroller, MPU banner scroller, 320x50 phone banner,
+      pass-back tag).
+published_example_values:
+  - context: S2S ad request example
+    source: https://wiki.loopme.cool/publishers/integrations/s2s
+    values:
+      appId: d18c430ad2
+      uid: 00000000-0000-0000-0000-000000000000
+      clientid: testclient
+    note: >-
+      Values copied verbatim from the documented example request. These are
+      illustration values in the public docs, NOT working test credentials —
+      a real appId is provisioned by a LoopMe account manager.
+  - context: Ad tag example app key
+    source: https://wiki.loopme.cool/publishers/integrations/ad-tags
+    values:
+      app_key: fdd9a9d3c
+    note: >-
+      Published as the format example ("Example app key: fdd9a9d3c"); the ad-tag
+      snippets themselves ship a placeholder data-app-key="xxxxxxxxx".
+fixtures: []
+time_simulation:
+  supported: false
+notes: >-
+  Never treat the published example values above as usable credentials. No
+  decline/failure simulation values, test clocks, or fixture tooling are
+  documented for either API surface.

@@ -1,0 +1,378 @@
+{
+  "item": [
+    {
+      "id": "7a56bd15-01b8-4a8e-bebc-80a343bae8fa",
+      "name": "Ad Serving",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6d8c8cae-c69c-4557-a6a9-7d98baa99816",
+          "name": "Request an ad",
+          "request": {
+            "name": "Request an ad",
+            "description": {
+              "content": "Requests an ad for the described device/app/user context. Returns an ad payload on success, an empty ads array when no ad is available, or an error object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "appId",
+                  "value": "<string>",
+                  "description": "(Required) Unique application identifier provided by LoopMe."
+                },
+                {
+                  "disabled": false,
+                  "key": "ua",
+                  "value": "<string>",
+                  "description": "(Required) Device user agent string."
+                },
+                {
+                  "disabled": false,
+                  "key": "uid",
+                  "value": "<string>",
+                  "description": "(Required) Unique user identifier (IDFA, Google Advertiser ID, or cookie ID)."
+                },
+                {
+                  "disabled": false,
+                  "key": "ip",
+                  "value": "<string>",
+                  "description": "(Required) Device IP address."
+                },
+                {
+                  "disabled": false,
+                  "key": "clientid",
+                  "value": "<string>",
+                  "description": "(Required) Client server name, used for debugging."
+                },
+                {
+                  "disabled": false,
+                  "key": "dnt",
+                  "value": "<integer>",
+                  "description": "(Required) Do-not-track flag; 1 to disable tracking."
+                },
+                {
+                  "disabled": false,
+                  "key": "bundleid",
+                  "value": "<string>",
+                  "description": "(Required) App bundle ID from the store."
+                },
+                {
+                  "disabled": false,
+                  "key": "appname",
+                  "value": "<string>",
+                  "description": "(Required) Application name."
+                },
+                {
+                  "disabled": false,
+                  "key": "sdk",
+                  "value": "<string>",
+                  "description": "(Required) SDK version number."
+                },
+                {
+                  "disabled": false,
+                  "key": "exchange",
+                  "value": "<string>",
+                  "description": "(Required) Exchange or network name."
+                },
+                {
+                  "disabled": false,
+                  "key": "app_version",
+                  "value": "<string>",
+                  "description": "App version number."
+                },
+                {
+                  "disabled": false,
+                  "key": "pubname",
+                  "value": "<string>",
+                  "description": "Publisher name."
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<number>",
+                  "description": "Longitude coordinate."
+                },
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<number>",
+                  "description": "Latitude coordinate."
+                },
+                {
+                  "disabled": false,
+                  "key": "reward",
+                  "value": "<integer>",
+                  "description": "Rewarded ad indicator; set to 1 for rewarded."
+                },
+                {
+                  "disabled": false,
+                  "key": "storeurl",
+                  "value": "<string>",
+                  "description": "App store URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<string>",
+                  "description": "User language, 2-letter ISO code."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73b0e119-10ed-4d33-ae60-2cfa21050ae4",
+              "name": "Ad payload, or an empty ads array when no ad is available.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ua",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "uid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "clientid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dnt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bundleid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sdk",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exchange",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "app_version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pubname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "reward",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "storeurl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"ads\": [\n    {\n      \"script\": \"string\"\n    },\n    {\n      \"script\": \"string\"\n    }\n  ],\n  \"version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "980cdc17-5b29-45a9-84cc-a72134c1dd3f",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ua",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "uid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "clientid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dnt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bundleid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "appname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sdk",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exchange",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "app_version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pubname",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "reward",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "storeurl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"error\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://loopme.me/api/s2s",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3d6b127e-5f9a-4fd6-9ee5-bcf336ca3b5a",
+    "name": "LoopMe S2S Ad Request API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LoopMe server-to-server (S2S) ad request API. A publisher's ad server makes a GET request describing the device, app, and user, and LoopMe returns an ad payload (ad HTML in a script element plus beacon URLs) or an empty ads array when no ad is available. Requests are identified by the appId provided by LoopMe rather than a bearer token; the api_auth_token used by the Reporting API does not apply here.\n\nContact Support:\n Name: LoopMe Support",
+      "type": "text/plain"
+    }
+  }
+}

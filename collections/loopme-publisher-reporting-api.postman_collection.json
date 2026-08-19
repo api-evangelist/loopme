@@ -1,0 +1,335 @@
+{
+  "item": [
+    {
+      "id": "bae5b301-bbbf-4553-a69e-deb1cb935e30",
+      "name": "Publisher Reporting",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ddb91f73-ad47-44d1-875b-a490ff9897e2",
+          "name": "Retrieve publisher (app/site) statistics",
+          "request": {
+            "name": "Retrieve publisher (app/site) statistics",
+            "description": {
+              "content": "Returns app and site statistics for the authenticated LoopMe publisher account over the requested date range and granularity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports",
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_auth_token",
+                  "value": "<string>",
+                  "description": "(Required) 16-character LoopMe API authentication token."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_range",
+                  "value": "<string>",
+                  "description": "(Required) Predefined value (today, yesterday, days7, days30, days90) or a custom range in YYYY-MM-DD:YYYY-MM-DD format."
+                },
+                {
+                  "disabled": false,
+                  "key": "granularity",
+                  "value": "<string>",
+                  "description": "Time bucketing for the series."
+                },
+                {
+                  "disabled": false,
+                  "key": "country_code",
+                  "value": "<string>",
+                  "description": "ISO 3166-1 alpha-3 country code (e.g. USA, GBR)."
+                },
+                {
+                  "disabled": false,
+                  "key": "platform",
+                  "value": "<string>",
+                  "description": "Platform filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "group_by",
+                  "value": "<string>",
+                  "description": "Comma-separated list of dimensions to group results by."
+                },
+                {
+                  "disabled": false,
+                  "key": "app_key",
+                  "value": "<string>",
+                  "description": "Unique application or website identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1207e538-53d8-44c8-8f10-2b63cecc5f52",
+              "name": "Report series",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_auth_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "platform",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "app_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_auth_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"granularity\": \"day\",\n  \"series\": [\n    {\n      \"date\": \"2026-07-01 00:00:00 UTC\",\n      \"totals\": {\n        \"key_0\": 9290.503614041696,\n        \"key_1\": 2733.987205815057,\n        \"key_2\": 9563.971257088699,\n        \"key_3\": \"string\"\n      }\n    },\n    {\n      \"date\": \"2026-07-01 00:00:00 UTC\",\n      \"totals\": {\n        \"key_0\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6901f1e1-2c0e-485c-860e-866f650a247c",
+              "name": "Request error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_auth_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "platform",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "app_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_auth_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": {\n    \"1001\": \"Missing or invalid api_auth_token\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c8c3e82-e672-4c1a-8e3c-6e75573bf21a",
+              "name": "Missing or invalid api_auth_token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_auth_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_range",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "platform",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "app_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_auth_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": {\n    \"1001\": \"Missing or invalid api_auth_token\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://reports.loopme.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_auth_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1489586a-a108-42e9-b78f-83049e029d6d",
+    "name": "LoopMe Reporting Ad Serving Publisher Reporting API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The LoopMe Reporting API allows third-party servers to retrieve app, site, and campaign statistics of LoopMe user accounts via REST. There is a publisher reporting endpoint (apps/sites) and an advertiser reporting endpoint (campaigns). All requests use GET and are authenticated with a 16-character API authentication token passed as the api_auth_token query parameter, which is enabled in the LoopMe dashboard Account/Settings. Responses are JSON, currency is USD, and all times are UTC.\n\nContact Support:\n Name: LoopMe Support",
+      "type": "text/plain"
+    }
+  }
+}

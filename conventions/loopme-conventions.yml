@@ -41,3 +41,22 @@ error_envelope:
   ref: errors/loopme-error-codes.yml
 rate_limiting:
   documented: false
+  ref: rate-limits/loopme-rate-limits.yml
+  notes: >-
+    No 429, no Retry-After and no RateLimit-* headers appear anywhere in the
+    published documentation, and the error-code table contains no throttling
+    code. Re-checked 2026-08-13.
+sandbox:
+  supported: false
+  ref: sandbox/loopme-sandbox.yml
+  notes: >-
+    No test/live key separation. Ad rendering is tested on-device with the
+    LoopMe X tester apps against a production app key.
+cross_links:
+  authentication: authentication/loopme-authentication.yml
+  errors: errors/loopme-error-codes.yml
+  lifecycle: lifecycle/loopme-lifecycle.yml
+  rate_limits: rate-limits/loopme-rate-limits.yml
+  plans: plans/loopme-plans-pricing.yml
+  conformance: conformance/loopme-conformance.yml
+  components: components/loopme-components.yml

@@ -1,14 +1,11 @@
 aid: loopme
 name: LoopMe
-description: >-
-  LoopMe is a global brand-performance advertising platform that uses AI to bring
-  brands into mobile and CTV apps. Its products span an AI-powered intelligent
-  marketplace, PurchaseLoop outcome-based brand advertising, the Chartboost
-  in-app monetization platform, and an Audience & Measurement Platform (AMP).
-  For developers, LoopMe exposes a REST Reporting API for publisher (app/site)
-  and advertiser (campaign) statistics, a server-to-server (S2S) ad request API,
-  first-party United SDKs for Android and iOS, and a Prebid.js header-bidding
-  adapter. LoopMe is backed by HV Capital and headquartered in the UK.
+description: LoopMe is a global brand-performance advertising platform that uses AI to bring brands into
+  mobile and CTV apps. Its products span an AI-powered intelligent marketplace, PurchaseLoop outcome-based
+  brand advertising, the Chartboost in-app monetization platform, and an Audience & Measurement Platform
+  (AMP). For developers, LoopMe exposes a REST Reporting API for publisher (app/site) and advertiser (campaign)
+  statistics, a server-to-server (S2S) ad request API, first-party United SDKs for Android and iOS, and
+  a Prebid.js header-bidding adapter. LoopMe is backed by HV Capital and headquartered in the UK.
 deliveryModel:
   model: saas
   open_source: false
@@ -47,7 +44,7 @@ x-tier: profiled
 x-tier-reason: enriched-from-public-developer-surface
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-08-13'
+modified: '2026-09-16'
 tags:
 - Company
 - Advertising
@@ -66,20 +63,15 @@ maintainers:
 apis:
 - aid: loopme:loopme-ad-serving-api
   name: LoopMe S2S Ad Serving API
-  description: >-
-    LoopMe's server-to-server ad request endpoint. A third-party ad server,
-    exchange or mediation platform sends a GET describing the device, app and
-    user, and LoopMe returns an MRAID ad payload (ad HTML plus impression and
-    click beacon URLs), an empty ads array when there is no fill, or an HTTP 404
-    error envelope. Identified by the appId LoopMe provisions to the publisher
-    rather than by a token.
+  description: LoopMe's server-to-server ad request endpoint. A third-party ad server, exchange or mediation
+    platform sends a GET describing the device, app and user, and LoopMe returns an MRAID ad payload (ad
+    HTML plus impression and click beacon URLs), an empty ads array when there is no fill, or an HTTP
+    404 error envelope. Identified by the appId LoopMe provisions to the publisher rather than by a token.
   humanURL: https://wiki.loopme.cool/publishers/integrations/s2s
   baseURL: https://loopme.me/api/s2s
-  x-base-url-note: >-
-    Corrected 2026-08-13. The tag-split refine pass had assigned this ad-serving
-    operation the Reporting API base (https://reports.loopme.com/api/v1); the
-    S2S reference documents https://loopme.me/api/s2s/ads, which matches
-    openapi/_original/loopme-s2s-openapi.yml.
+  x-base-url-note: Corrected 2026-08-13. The tag-split refine pass had assigned this ad-serving operation
+    the Reporting API base (https://reports.loopme.com/api/v1); the S2S reference documents https://loopme.me/api/s2s/ads,
+    which matches openapi/_original/loopme-s2s-openapi.yml.
   tags:
   - Ad Serving
   properties:
@@ -122,6 +114,8 @@ apis:
   - type: Documentation
     url: https://wiki.loopme.cool/publishers/reporting-api
 common:
+- type: Website
+  url: https://loopme.cool
 - type: AgenticAccess
   url: agentic-access/loopme-agentic-access.yml
 - type: DeveloperPortal
@@ -154,7 +148,10 @@ common:
   url: lifecycle/loopme-lifecycle.yml
 - type: X-MCPServerCandidate
   url: mcp/loopme-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: DomainSecurity
   url: security/loopme-domain-security.yml
 - type: DataModel

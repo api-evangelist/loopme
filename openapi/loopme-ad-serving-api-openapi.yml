@@ -1,14 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: LoopMe S2S Ad Request API
+  title: LoopMe S2S Ad Request Ad Serving API
   version: '1.0'
-  description: LoopMe server-to-server (S2S) ad request API. A publisher's ad server makes a GET request describing the device, app, and user, and LoopMe returns an ad payload (ad HTML in a script element plus beacon URLs) or an empty ads array when no ad is available. Requests are identified by the appId provided by LoopMe rather than a bearer token; the api_auth_token used by the Reporting API does not apply here.
+  description: LoopMe server-to-server (S2S) ad request API. A publisher's ad server makes a GET request describing the device, app, and user, and LoopMe returns an ad payload (ad HTML in a script element plus beacon URLs) or an empty ads array when no ad is available. Requests are identified by the appId provided by LoopMe rather than a bearer token.
   contact:
     name: LoopMe Support
     url: https://wiki.loopme.cool/publishers/integrations/s2s
   x-apievangelist-generated: true
   x-source: https://wiki.loopme.cool/publishers/integrations/s2s
-  x-apievangelist-repair: 'Base URL, title, description, source and security corrected 2026-08-13 from openapi/_original/loopme-s2s-openapi.yml — the tag-split pass had inherited the Reporting API server, title and api_auth_token requirement for this ad-serving operation. Documented base https://loopme.me/api/s2s/ads confirmed on https://wiki.loopme.cool/publishers/integrations/s2s.'
 servers:
 - url: https://loopme.me/api/s2s
   description: LoopMe S2S ad request endpoint

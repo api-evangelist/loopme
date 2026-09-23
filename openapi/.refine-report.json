@@ -1,18 +1,29 @@
 {
   "provider": "loopme",
   "sources": [
-    "loopme-ad-serving-api-openapi.yml",
-    "loopme-advertiser-reporting-api-openapi.yml",
-    "loopme-publisher-reporting-api-openapi.yml"
+    "_original/loopme-reporting-openapi.yml",
+    "_original/loopme-s2s-openapi.yml"
   ],
   "outputs": [
-    "loopme-ad-serving-api-openapi.yml",
     "loopme-advertiser-reporting-api-openapi.yml",
-    "loopme-publisher-reporting-api-openapi.yml"
+    "loopme-publisher-reporting-api-openapi.yml",
+    "loopme-ad-serving-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "loopme-reporting-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "loopme-reporting-openapi.yml: declared missing tag: Advertiser Reporting",
+    "loopme-reporting-openapi.yml: declared missing tag: Publisher Reporting",
+    "loopme-s2s-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "loopme-s2s-openapi.yml: declared missing tag: Ad Serving",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "loopme-ad-serving-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "loopme-advertiser-reporting-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "loopme-publisher-reporting-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -57,17 +57,6 @@ paths:
                 $ref: '#/components/schemas/ErrorEnvelope'
 components:
   parameters:
-    platform:
-      name: platform
-      in: query
-      required: false
-      description: Platform filter.
-      schema:
-        type: string
-        enum:
-        - ios
-        - android
-        - website
     dateRange:
       name: date_range
       in: query
@@ -82,6 +71,31 @@ components:
       description: ISO 3166-1 alpha-3 country code (e.g. USA, GBR).
       schema:
         type: string
+    groupBy:
+      name: group_by
+      in: query
+      required: false
+      description: Comma-separated list of dimensions to group results by.
+      schema:
+        type: string
+    platform:
+      name: platform
+      in: query
+      required: false
+      description: Platform filter.
+      schema:
+        type: string
+        enum:
+        - ios
+        - android
+        - website
+    apiAuthToken:
+      name: api_auth_token
+      in: query
+      required: true
+      description: 16-character LoopMe API authentication token.
+      schema:
+        type: string
     granularity:
       name: granularity
       in: query
@@ -94,42 +108,7 @@ components:
         - day
         - week
         - month
-    groupBy:
-      name: group_by
-      in: query
-      required: false
-      description: Comma-separated list of dimensions to group results by.
-      schema:
-        type: string
-    apiAuthToken:
-      name: api_auth_token
-      in: query
-      required: true
-      description: 16-character LoopMe API authentication token.
-      schema:
-        type: string
   schemas:
-    Report:
-      type: object
-      properties:
-        granularity:
-          type: string
-          example: day
-        series:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReportPoint'
-    ErrorEnvelope:
-      type: object
-      properties:
-        errors:
-          type: object
-          description: Map of error code to human-readable description.
-          additionalProperties:
-            type: string
-      example:
-        errors:
-          '1001': Missing or invalid api_auth_token
     ReportPoint:
       type: object
       properties:
@@ -141,6 +120,27 @@ components:
           type: object
           description: Metric key-value pairs; currency values are USD decimals.
           additionalProperties: true
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: object
+          description: Map of error code to human-readable description.
+          additionalProperties:
+            type: string
+      example:
+        errors:
+          '1001': Missing or invalid api_auth_token
+    Report:
+      type: object
+      properties:
+        granularity:
+          type: string
+          example: day
+        series:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReportPoint'
   securitySchemes:
     api_auth_token:
       type: apiKey

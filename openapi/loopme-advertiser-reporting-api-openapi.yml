@@ -68,59 +68,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorEnvelope'
 components:
-  parameters:
-    dateRange:
-      name: date_range
-      in: query
-      required: true
-      description: Predefined value (today, yesterday, days7, days30, days90) or a custom range in YYYY-MM-DD:YYYY-MM-DD format.
-      schema:
-        type: string
-    countryCode:
-      name: country_code
-      in: query
-      required: false
-      description: ISO 3166-1 alpha-3 country code (e.g. USA, GBR).
-      schema:
-        type: string
-    groupBy:
-      name: group_by
-      in: query
-      required: false
-      description: Comma-separated list of dimensions to group results by.
-      schema:
-        type: string
-    platform:
-      name: platform
-      in: query
-      required: false
-      description: Platform filter.
-      schema:
-        type: string
-        enum:
-        - ios
-        - android
-        - website
-    apiAuthToken:
-      name: api_auth_token
-      in: query
-      required: true
-      description: 16-character LoopMe API authentication token.
-      schema:
-        type: string
-    granularity:
-      name: granularity
-      in: query
-      required: false
-      description: Time bucketing for the series.
-      schema:
-        type: string
-        enum:
-        - hour
-        - day
-        - week
-        - month
   schemas:
+    Report:
+      type: object
+      properties:
+        granularity:
+          type: string
+          example: day
+        series:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReportPoint'
     ReportPoint:
       type: object
       properties:
@@ -143,16 +101,58 @@ components:
       example:
         errors:
           '1001': Missing or invalid api_auth_token
-    Report:
-      type: object
-      properties:
-        granularity:
-          type: string
-          example: day
-        series:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReportPoint'
+  parameters:
+    dateRange:
+      name: date_range
+      in: query
+      required: true
+      description: Predefined value (today, yesterday, days7, days30, days90) or a custom range in YYYY-MM-DD:YYYY-MM-DD format.
+      schema:
+        type: string
+    apiAuthToken:
+      name: api_auth_token
+      in: query
+      required: true
+      description: 16-character LoopMe API authentication token.
+      schema:
+        type: string
+    platform:
+      name: platform
+      in: query
+      required: false
+      description: Platform filter.
+      schema:
+        type: string
+        enum:
+        - ios
+        - android
+        - website
+    countryCode:
+      name: country_code
+      in: query
+      required: false
+      description: ISO 3166-1 alpha-3 country code (e.g. USA, GBR).
+      schema:
+        type: string
+    groupBy:
+      name: group_by
+      in: query
+      required: false
+      description: Comma-separated list of dimensions to group results by.
+      schema:
+        type: string
+    granularity:
+      name: granularity
+      in: query
+      required: false
+      description: Time bucketing for the series.
+      schema:
+        type: string
+        enum:
+        - hour
+        - day
+        - week
+        - month
   securitySchemes:
     api_auth_token:
       type: apiKey

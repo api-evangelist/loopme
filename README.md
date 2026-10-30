@@ -64,6 +64,135 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-LoopMe is a company surfaced as a portfolio company of hv-capital and added to the API Evangelist network as a stub for enrichment. Sector: ai-enterprise-software. This profile is a lead awaiting the enrichment pipeline.
+LoopMe is a global brand-performance advertising platform that uses AI to bring brands into mobile and CTV apps. Its products span an AI-powered intelligent marketplace, PurchaseLoop outcome-based brand advertising, the Chartboost in-app monetization platform, and an Audience & Measurement Platform (AMP). For developers, LoopMe exposes a REST Reporting API for publisher (app/site) and advertiser (campaign) statistics, a server-to-server (S2S) ad request API, first-party United SDKs for Android and iOS, and a Prebid.js header-bidding adapter. LoopMe is backed by HV Capital and headquartered in the UK.
 
-Backed by: hv-capital
+**Areas:** Company · Advertising · AdTech · Mobile Advertising · CTV · Reporting · Programmatic · Ai Enterprise Software · SDK
+
+## LoopMe on APIs.io
+
+Everything profiled for LoopMe is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/loopme/](https://apis.io/providers/loopme/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [LoopMe S2S Ad Serving API](https://apis.io/apis/loopme/loopme-ad-serving-api/) — LoopMe's server-to-server ad request endpoint. A third-party ad server, exchange or mediation platform sends a GET describing the device, app and user, and…
+- [LoopMe Advertiser Reporting API](https://apis.io/apis/loopme/loopme-advertiser-reporting-api/) — The Advertiser Reporting API from LoopMe — 1 operation(s) for advertiser reporting.
+- [LoopMe Publisher Reporting API](https://apis.io/apis/loopme/loopme-publisher-reporting-api/) — The Publisher Reporting API from LoopMe — 1 operation(s) for publisher reporting.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [loopme](https://apis.io/servers/loopme/loopme/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Loopme Agentic Access](https://apis.io/agentic-access/loopme/loopme-agentic-access/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [LoopMe S2S Ad Request API](https://apis.io/collections/loopme/open-loopme-ad-serving-api/)
+- [LoopMe Reporting Ad Serving Advertiser Reporting API](https://apis.io/collections/loopme/open-loopme-advertiser-reporting-api/)
+- [LoopMe Reporting Ad Serving Publisher Reporting API](https://apis.io/collections/loopme/open-loopme-publisher-reporting-api/)
+
+#### Overlays (3)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Loopme Ad Serving Api Overlay](https://apis.io/overlays/loopme/loopme-ad-serving-api-overlay/)
+- [Loopme Advertiser Reporting Api Overlay](https://apis.io/overlays/loopme/loopme-advertiser-reporting-api-overlay/)
+- [Loopme Publisher Reporting Api Overlay](https://apis.io/overlays/loopme/loopme-publisher-reporting-api-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Loopme Authentication](https://apis.io/security/loopme/loopme-authentication/)
+- [Loopme Domain Security](https://apis.io/security/loopme/loopme-domain-security/)
+- [Loopme Trust Center](https://apis.io/security/loopme/loopme-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Loopme Plans Pricing](https://apis.io/plans/loopme/loopme-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Loopme Rate Limits](https://apis.io/rate-limits/loopme/loopme-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://loopme.cool)
+- [Documentation](https://wiki.loopme.cool/)
+- [API reference](https://wiki.loopme.cool/publishers/reporting-api)
+- [Support](https://www.loopme.io/support/)
+- [Blog](https://loopme.ai/news-blog/)
+- [Compliance](https://legal.loopme.com/privacy-center)
+- [Terms of service](https://legal.loopme.com/legal-centre/terms-of-use)
+- [Privacy policy](https://legal.loopme.com/privacy-center)
+- [GitHub](https://github.com/loopme)
+
+## API Evangelist rating
+
+**Kin Score 38.3** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 13.2 |
+| Contract governance | 18.2 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 61.3 |
+| Access clarity | 43.4 |
+
+**Agent readiness 34.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/loopme/](https://apis.io/providers/loopme/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for LoopMe: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/loopme/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
